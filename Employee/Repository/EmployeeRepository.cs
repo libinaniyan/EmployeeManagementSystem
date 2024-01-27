@@ -9,10 +9,13 @@ namespace Employee.Repository
     {
 
         private readonly DapperContext _context;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public EmployeeRepository(DapperContext context)
+        public EmployeeRepository(DapperContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            _httpContextAccessor = httpContextAccessor;
+
         }
 
         public async Task<IEnumerable<EmployeeDto>> GetEmployees()
